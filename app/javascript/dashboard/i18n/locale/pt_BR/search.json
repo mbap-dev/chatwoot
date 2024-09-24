@@ -2,12 +2,12 @@
   "SEARCH": {
     "TABS": {
       "ALL": "Todos",
-      "CONTACTS": "Contato",
+      "CONTACTS": "Contatos",
       "CONVERSATIONS": "Conversas",
       "MESSAGES": "Mensagens"
     },
     "SECTION": {
-      "CONTACTS": "Contato",
+      "CONTACTS": "Contatos",
       "CONVERSATIONS": "Conversas",
       "MESSAGES": "Mensagens"
     },
@@ -20,7 +20,7 @@
     "BOT_LABEL": "Bot",
     "READ_MORE": "Saiba mais",
     "WROTE": "escreveu:",
-    "FROM": "De",
-    "EMAIL": "e-mail"
+    "FROM": "de",
+    "EMAIL": "email"
   }
 }
