@@ -501,9 +501,9 @@
     },
     "AGENT_STATUS": {
       "HEADER": "Status do agente",
-      "ONLINE": "Disponível",
-      "BUSY": "Ocupado",
-      "OFFLINE": "Desconectado"
+      "ONLINE": "Online",
+      "BUSY": "Ausente",
+      "OFFLINE": "Offline"
     }
   },
   "DAYS_OF_WEEK": {

@@ -64,9 +64,9 @@
         "TITLE": "Notificações de Áudio",
         "NOTE": "Ative notificações de áudio no painel para novas mensagens e conversas.",
         "ALERT_TYPES": {
-          "NONE": "None",
-          "MINE": "Assigned",
-          "ALL": "All"
+          "NONE": "Nenhuma",
+          "MINE": "Minhas Conversas",
+          "ALL": "Todas"
         },
         "ALERT_TYPE": {
           "TITLE": "Tipo de Alerta:",
@@ -110,7 +110,7 @@
           "SLA_MISSED_NEXT_RESPONSE": "Uma conversa perde o SLA da próxima resposta",
           "SLA_MISSED_RESOLUTION": "Uma conversa perde o SLA de resolução"
         },
-        "BROWSER_PERMISSION": "Enable push notifications for your browser so you’re able to receive them"
+        "BROWSER_PERMISSION": "Ative notificações push em seu navegador para poder recebê-las"
       },
       "API": {
         "UPDATE_SUCCESS": "Suas preferências de notificação foram atualizadas com sucesso",
@@ -147,7 +147,7 @@
         "LABEL": "Disponibilidade",
         "STATUSES_LIST": [
           "Online",
-          "Ocupado",
+          "Ausente",
           "Offline"
         ],
         "SET_AVAILABILITY_SUCCESS": "Disponibilidade definida com sucesso",
@@ -270,6 +270,7 @@
     "ONGOING": "Em andamento",
     "ONE_OFF": "Única",
     "REPORTS_SLA": "SLA",
+    "CUSTOM_ROLES": "Regras Personalizadas",
     "REPORTS_BOT": "Bot",
     "REPORTS_AGENT": "Agentes",
     "REPORTS_LABEL": "Marcadores",
@@ -291,8 +292,8 @@
       "CATEGORY_EMPTY_MESSAGE": "Nenhuma categoria encontrada"
     },
     "SET_AUTO_OFFLINE": {
-      "TEXT": "Marcar offline automaticamente",
-      "INFO_TEXT": "Deixe o sistema marcar você automaticamente quando você não estiver usando o app ou o painel de controle."
+      "TEXT": "Ficar offline automaticamente",
+      "INFO_TEXT": "Deixe o sistema marcar você automaticamente quando você não estiver usando o Envolve Chat"
     },
     "DOCS": "Ler documentos"
   },
