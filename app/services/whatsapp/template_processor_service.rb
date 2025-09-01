@@ -55,16 +55,20 @@ class Whatsapp::TemplateProcessorService
   end
 
   def build_header_params(header_data)
+    if header_data['media_type'].present? && header_data['media_url'].present?
+      media_param = parameter_builder.build_media_parameter(
+        header_data['media_url'],
+        header_data['media_type'],
+        header_data['filename']
+      )
+      return [media_param].compact
+    end
+
     header_params = []
-    header_data.each do |key, value|
+    header_data.each do |_key, value|
       next if value.blank?
 
-      if media_url_with_type?(key, header_data)
-        media_param = parameter_builder.build_media_parameter(value, header_data['media_type'])
-        header_params << media_param if media_param
-      elsif key != 'media_type'
-        header_params << parameter_builder.build_parameter(value)
-      end
+      header_params << parameter_builder.build_parameter(value)
     end
     header_params
   end
@@ -108,12 +112,21 @@ class Whatsapp::TemplateProcessorService
     button_params = processed_params['buttons'].filter_map.with_index do |button, index|
       next if button.blank?
 
-      if button['type'] == 'url' || button['parameter'].present?
+      parameter = nil
+
+      if button['type'] == 'order_details' && button.dig('parameter', 'action').present?
+        parameter = {
+          type: 'action',
+          action: button['parameter']['action']
+        }
+      end
+
+      if parameter.present?
         {
           type: 'button',
-          sub_type: button['type'] || 'url',
+          sub_type: button['type'],
           index: index,
-          parameters: [parameter_builder.build_button_parameter(button)]
+          parameters: [parameter]
         }
       end
     end

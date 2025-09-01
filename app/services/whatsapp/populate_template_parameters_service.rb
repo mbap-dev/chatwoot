@@ -30,12 +30,12 @@ class Whatsapp::PopulateTemplateParametersService
     end
   end
 
-  def build_media_parameter(url, media_type)
+  def build_media_parameter(url, media_type, filename = nil)
     return nil if url.blank?
 
     sanitized_url = sanitize_parameter(url)
     validate_url(sanitized_url)
-    build_media_type_parameter(sanitized_url, media_type.downcase)
+    build_media_type_parameter(sanitized_url, media_type.downcase, filename)
   end
 
   def build_named_parameter(parameter_name, value)
@@ -89,14 +89,14 @@ class Whatsapp::PopulateTemplateParametersService
     }
   end
 
-  def build_media_type_parameter(sanitized_url, media_type)
+  def build_media_type_parameter(sanitized_url, media_type, filename = nil)
     case media_type
     when 'image'
       build_image_parameter(sanitized_url)
     when 'video'
       build_video_parameter(sanitized_url)
     when 'document'
-      build_document_parameter(sanitized_url)
+      build_document_parameter(sanitized_url, filename)
     else
       raise ArgumentError, "Unsupported media type: #{media_type}"
     end
@@ -110,8 +110,10 @@ class Whatsapp::PopulateTemplateParametersService
     { type: 'video', video: { link: url } }
   end
 
-  def build_document_parameter(url)
-    { type: 'document', document: { link: url } }
+  def build_document_parameter(url, filename = nil)
+    media_object = { link: url }
+    media_object[:filename] = filename if filename&.present?
+    { type: 'document', document: media_object }
   end
 
   def rich_formatting?(text)
